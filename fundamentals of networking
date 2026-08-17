@@ -1,0 +1,190 @@
+📚 What I Studied
+
+Today I reviewed the fundamentals of networking, including IPv4, IPv6, private IP addresses, public IP addresses, and the differences between IPv4 and IPv6.
+
+🔹 IPv4 vs IPv6 Comparison
+Feature	IPv4	IPv6
+Address size	32-bit	128-bit
+Address format	Decimal	Hexadecimal
+Example	192.168.1.10	2001:db8::1
+Number of addresses	~4.3 billion	~340 undecillion
+Address notation	4 octets	8 hexadecimal groups
+Example full address	192.168.1.10	2001:0db8:0000:0000:0000:ff00:0042:8329
+Broadcast	Supported	Not supported
+Multicast	Supported	Supported
+Anycast	Limited/Not native	Supported
+Address configuration	Manual / DHCP	SLAAC / DHCPv6 / Manual
+NAT	Commonly used	Generally not required
+Header size	Minimum 20 bytes	40 bytes
+Header complexity	More complex	Simplified
+Fragmentation	Routers and hosts can fragment	Only source host fragments
+ARP	Used	Replaced by NDP
+ICMP	ICMPv4	ICMPv6
+Security	IPsec support	IPsec support built into IPv6 specification
+QoS	Uses ToS/DSCP	Uses Traffic Class + Flow Label
+Address exhaustion	Major limitation	Practically eliminates address exhaustion
+Private addressing	RFC1918 private addresses	ULA addresses
+Loopback	127.0.0.1	::1
+Unspecified address	0.0.0.0	::
+Link-local	Not commonly used in the same way	fe80::/10
+Configuration	DHCP commonly used	SLAAC can automatically configure addresses
+Broadcast discovery	Broadcast	Multicast/NDP
+Deployment	Older and still widely used	Modern IP standard
+🔹 IPv4 Address Types
+Private IPv4 Addresses
+
+Private addresses are used inside local networks and are not directly routable on the public Internet.
+
+Range	CIDR
+10.0.0.0 – 10.255.255.255	10.0.0.0/8
+172.16.0.0 – 172.31.255.255	172.16.0.0/12
+192.168.0.0 – 192.168.255.255	192.168.0.0/16
+
+Example:
+
+192.168.1.20
+
+Public IPv4 Addresses
+
+Public IP addresses are globally routable and are used for communication across the Internet.
+
+Example:
+
+8.8.8.8
+
+🔹 IPv6 Address Types
+
+IPv6 does not use IPv4-style RFC1918 private addresses.
+
+Common IPv6 address types include:
+
+Type	Range / Example	Purpose
+Global Unicast	2000::/3	Public Internet communication
+Link-Local	fe80::/10	Communication on local network segment
+Unique Local	fc00::/7	Private/internal networks
+Loopback	::1	Local host
+Unspecified	::	No address assigned
+Multicast	ff00::/8	One-to-many communication
+🔹 Private IPv4 vs IPv6 Unique Local Address
+
+IPv4 commonly uses:
+
+192.168.1.10
+
+IPv6 can use a Unique Local Address (ULA), for example:
+
+fd12:3456:789a::10
+
+Both can be used for internal/private network communication.
+
+🔹 Important IPv4 → IPv6 Differences
+1. Address Size
+
+IPv4:
+
+192.168.1.1
+
+32-bit address.
+
+IPv6:
+
+2001:db8:abcd:0012::1
+
+128-bit address.
+
+2. NAT
+
+IPv4 commonly uses NAT because IPv4 addresses are limited.
+
+IPv6 provides such a large address space that devices can generally have globally unique addresses without requiring NAT.
+
+Note: IPv6 can still use NAT in some environments, but it is not required for address conservation in the way it commonly is with IPv4.
+
+3. Broadcast
+
+IPv4 supports broadcast.
+
+Example:
+
+255.255.255.255
+
+IPv6 does not use broadcast.
+
+Instead, IPv6 uses multicast for many functions.
+
+4. ARP vs NDP
+
+IPv4 uses:
+
+ARP – Address Resolution Protocol
+
+IPv6 uses:
+
+NDP – Neighbor Discovery Protocol
+
+NDP operates using ICMPv6.
+
+5. Address Configuration
+
+IPv4 commonly uses:
+
+Static configuration
+DHCP
+
+IPv6 can use:
+
+Static configuration
+SLAAC
+DHCPv6
+
+SLAAC = Stateless Address Autoconfiguration
+
+This allows an IPv6 device to automatically configure its address using information provided by the network.
+
+6. Fragmentation
+
+IPv4 allows fragmentation by routers and hosts.
+
+IPv6 routers do not fragment packets.
+
+The source host is responsible for fragmentation when required.
+
+7. Header
+
+IPv4 has a variable header size, with a minimum of 20 bytes.
+
+IPv6 has a fixed base header size of 40 bytes and uses extension headers for additional functionality.
+
+🔹 Special Addresses
+IPv4 Loopback
+127.0.0.1
+
+Used to test the local machine.
+
+IPv6 Loopback
+::1
+
+Equivalent concept to IPv4 127.0.0.1.
+
+IPv4 Unspecified
+0.0.0.0
+IPv6 Unspecified
+::
+🧠 Key CCNA Takeaways
+IPv4 uses 32-bit addresses.
+IPv6 uses 128-bit addresses.
+IPv4 addresses are written in decimal.
+IPv6 addresses are written in hexadecimal.
+IPv4 supports broadcast.
+IPv6 does not use broadcast.
+IPv4 uses ARP.
+IPv6 uses NDP.
+IPv4 commonly uses NAT.
+IPv6 generally does not require NAT for address conservation.
+IPv4 uses DHCP commonly.
+IPv6 supports SLAAC and DHCPv6.
+IPv4 can be fragmented by routers.
+IPv6 routers do not fragment packets.
+IPv4 private ranges are 10/8, 172.16/12, and 192.168/16.
+IPv6 uses Unique Local Addresses (ULA) for private/internal addressing.
+IPv6 provides a vastly larger address space.
